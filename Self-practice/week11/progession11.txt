@@ -1,0 +1,5 @@
+Practice 01
+- อย่างเเรกต้องกำหนดก่อนว่า DOMContentLoaded คือ บอกให้รอจนกว่า HTML ของหน้านั้นถูกโหลดและสร้าง DOM เสร็จแล้ว ค่อยเริ่มทำงานโค้ดภายใน function นั้น จากนั้นก็สร้างตัวเเปรที่เรียกจาก idหรือ class
+ใน html โดยเรียกผ่าน document.getElementById หรือ document.querySelector เเละ กำหนด loadbtn ให้เวลากดไปเเล้วจะมีตาราง student ขึ้นมา โดยการ fetch จาก backend มาผ่าน
+http://localhost:3000/students เเละกำหนดตัวเเปรรับค่าของมันในรูปเเบบ json เเละใช้ foreach ให้เอาค่าลงไปในตารางทีละตัวจนครบจามที่รับจาก backend เเละกำหนดว่าเเต่ละช่องรับค่าอะไรมา
+เช่น id, name, major <td>${student.id}</td> <td>${student.name}</td> <td>${student.major}</td> studenttable.appendChild(tr) เเละก็เพิ้มtd ลงไปใน tr 

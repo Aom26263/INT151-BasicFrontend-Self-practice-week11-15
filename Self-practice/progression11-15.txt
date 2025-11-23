@@ -1,0 +1,4 @@
+week 11
+– เรื่องการ fetch API เราต้องมี backend ที่ไว้เรียกข้อมูลเเละจัดการข้อมูลจาก database ก่อน เเละเราต้องมี json server ด้วยเพราะเราเอาค่ามาเป็น json เวลา frontend เรียก backend ก็เรียกผ่านการ fetch
+ด้วยลิงค์ของ backend เช่น http://localhost:3000/student เเละสามารถทำ CRUD ได้ พวก GET, POST, PUT, DELETE, ... โดยเราต้องเป็นคนกำหนดว่าต้องการทำไร เเละ backend ต้องมี function CRUD ด้วย
+เพื่อให้ frontend พร้อมใช้งาน เเละสามารถใช้ try/catch ในการจับ error ได้
