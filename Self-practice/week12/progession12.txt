@@ -1,0 +1,57 @@
+- Practice02 อธิบายโปรเเกรม
+document.addEventListener("DOMContentLoaded", () => {
+    const loadBtn = document.getElementById("load-btn")
+    const table = document.getElementById("student-table") 
+
+    loadBtn.addEventListener("click", loadStudent)
+    async function loadStudent() {
+        try {
+            const res = await fetch("http://localhost:3000/students") //fetch จาก backend เพื่อดึงข้อมูลมา
+            if (!res.ok) {
+                throw new Error ("load error")
+            } //ตรวจสอบว่าดึงข้อมูลมาได้เรียบร้อยมั้ย
+
+            const students = await res.json()
+            table.innerHTML = ""
+            students.forEach((student) => {               // ใช้ foreach สร้างข้อมูลเเต่ละตัวในตาราง เเละเพิ่มปุ่ม delete
+                const tr = document.createElement("tr")
+                tr.innerHTML = `
+                <td>${student.id}</td>
+                <td>${student.name}</td>
+                <td>${student.major}</td>
+                <td>
+                <button class="delete-btn" data-id="${student.id}">Delete</button>
+                </td>
+                `
+            table.appendChild(tr); //เพิ่มสิ่งที่สร้างมาลงใน tr เป็นลูกๆของมันหรือ td นั่นเอง
+            })
+
+            document.querySelectorAll(".delete-btn").forEach((btn) => {  //กำหนดปุ่ม delete เมื่อกดเเล้วจะลบข้อมูลเเถวนั้นออกโดยเรียกใช้ function deleteStudent
+                btn.addEventListener("click", () => {
+                    const studentId = btn.dataset.id;
+                    deleteStudent(studentId, btn);
+                })
+            })
+
+        } catch (err) {
+            console.log(err); //try-catch เอาไว้ในการช่วยตรวจจับ error
+        }
+    }
+
+    async function deleteStudent(studentId, btn) {  //ฟังก์ชั่นไว้ลบข้อมูล 
+        try {
+            const res = await fetch(`http://localhost:3000/students/${studentId}`, { //fetch จาก backend เพื่อใช้ในการลบข้อมูลตาม studentId
+                method: "DELETE"
+            })
+
+            if (!res.ok) {
+                throw new Error ("delete error")
+            }
+            
+            const row = btn.closest("tr") //ไว้ช่วยค้นหาแท็ก <tr> ที่ใกล้ที่สุด
+            row.remove(); //ลบออก
+        } catch (err)  {
+            console.log(err);  //try-catch เอาไว้ในการช่วยตรวจจับ error
+        }
+    }
+})
