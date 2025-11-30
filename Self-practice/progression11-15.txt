@@ -3,4 +3,15 @@ week 11
 week 12 
 - เรื่องการ fetch API เราต้องมี backend ที่ไว้เรียกข้อมูลเเละจัดการข้อมูลจาก database ก่อน เเละเราต้องมี json server ด้วยเพราะเราเอาค่ามาเป็น json เวลา frontend เรียก backend ก็เรียกผ่านการ fetch
 ด้วยลิงค์ของ backend เช่น http://localhost:3000/student เเละสามารถทำ CRUD ได้ พวก GET, POST, PUT, DELETE, ... โดยเราต้องเป็นคนกำหนดว่าต้องการทำไร เเละ backend ต้องมี function CRUD ด้วย
-เพื่อให้ frontend พร้อมใช้งาน เเละสามารถใช้ try/catch ในการจับ error ได้
+เพื่อให้ frontend พร้อมใช้งาน เเละสามารถใช้ try/catch ในการจับ error ได้ method หลักๆ ที่เราใช้คือ GET คือ ดึงข้อมูลทั้งหมด POST คือเพิ่มข้อมูลเข้าไป PUT คือการเเก้ไขข้อมูลปัจจุบัน DELETE คือกาลบข้อมูลออก
+week 13
+- ยังอยู่ในเรื่องของ fetch API เเต่จะซับซ้อนขึ้น มีการทำ CRUD หลายอย่างในโปรเจคเดียว เขียน async function ออกมาเเล้วเรียก function ไปใช้งาน เเละฝึกเรื่อง DOM ให้ชำนาญ ลองใช้ในหลายๆเเบบ
+week 14
+- เรื่อง datetime มีหลาย function ex. getHours(), getMinutes(), getSeconds(), .... ช่วยในการเขียนโค้ดได้ง่ายขึ้น เเละยังมี function ที่เอาเรียกวัน เดือน ปีได้ด้วย
+setInterval() ใช้สำหรับอัพเดตเวลา real time ใน Project integrated เอาเรื่องนี้ไปใช้ด้วย เช่น Intl.DateTimeFormat().resolvedOptions().timeZone 
+Intl.DateTimeFormat() คือ Internationalization API ของ JavaScript ใช้สำหรับจัดการเรื่องวันที่, เวลา, ตัวเลข, สกุลเงิน ให้ตรงกับ locale หรือภูมิภาค 
+DateTimeFormat() คือ constructor ของ Intl ที่สร้าง object สำหรับ ฟอร์แมตวันที่และเวลา 
+.resolvedOptions() คือ เป็น method ของ Intl.DateTimeFormat จะคืนค่า object ที่มีค่า configuration ปัจจุบัน เช่น locale, numberingSystem, calendar, timeZone
+.timeZone คือ หลังจาก .resolvedOptions() คืน object แล้ว เราเอาค่า timeZone ของระบบ ผลลัพธ์จะเป็น string เช่น "Asia/Bangkok"
+week 15
+- ทบทวนเรื่องการ fetch API เเละทำ CRUD ที่ใช้ร่วมกับ backend

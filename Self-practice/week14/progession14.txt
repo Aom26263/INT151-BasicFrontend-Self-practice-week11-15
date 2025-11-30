@@ -1,0 +1,51 @@
+Practice01.1
+- function updateCurrentTime() {
+    const time = document.getElementById("current-time")
+    setInterval(() => {                                     // setInterval() สั่งให้โปรเเกรมทำงานซ้ำไปเรื่อย ๆ ทุก 1 วินาที
+    const now = new Date()
+    const hh = String(now.getHours()).padStart(2, "0")     // "0" เติม 0 ไปด้วยคือ เมื่อเวลาเป็นเลขหลักเดียวก็จะเป็น ex. 01,02,03
+    const mm = String(now.getMinutes()).padStart(2, "0")
+    const ss = String(now.getSeconds()).padStart(2, "0")
+
+    time.textContent = `${hh}:${mm}:${ss}`
+  }, 1000)                                                 // ดูจากตรงนี้!!!!
+}
+
+Practice01.2 
+document.getElementById("calc-age-btn").addEventListener("click", () => {
+  try {
+    const input = document.getElementById("birth-input").value;
+    const result = document.getElementById("age-result");
+
+    if (!input) {
+      result.textContent = "Choose date";
+      result.style.color = "red";
+      return;
+    }
+
+    const birth = new Date(input)
+    const today = new Date()
+
+    // เอาไว้คำนวณวัน เดือน ปี 
+    let years = today.getFullYear() - birth.getFullYear()
+    let months = today.getMonth() - birth.getMonth()
+    let days = today.getDate() - birth.getDate()
+
+    // ไว้แก้กรณีวันที่ติดลบ
+    if (days < 0) {
+      months--
+      days += 30
+    } // ถ้าวันติดลบ ให้ลดจำนวนเดือนลง 1 เเละเพิ่มวันเข้าไปประมาณ 30 วัน เพื่อให้เป็นค่าบวก
+
+    if (months < 0) {
+      years--
+      months += 12
+    } // ถ้าเดือนติดลบ ปีลดลง 1 เอาเดือน + 12 เพื่อให้เป็นค่าบวก
+
+    result.style.color = "black"
+    result.textContent = `${years} ปี ${months} เดือน ${days} วัน`
+
+  } catch (err) {
+    console.log(err);
+  }
+})

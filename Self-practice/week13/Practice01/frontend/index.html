@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Student Editor</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>แก้ไขข้อมูลนักศึกษา (Edit)</h1>
+
+    <div class="controls">
+      <button id="load-btn" class="btn">โหลดข้อมูลนักศึกษา</button>
+      <span id="global-status" class="status"></span>
+    </div>
+
+    <section class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>ชื่อ</th>
+            <th>สาขา</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="student-table">
+          <!-- JS จะเติมข้อมูลและจัดการโหมด edit/save/cancel -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- คุณจะเขียน app.js เอง -->
+  <script src="app.js"></script>
+</body>
+</html>

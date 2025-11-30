@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>โจทย์ DateTime แบบง่าย</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f5f7;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      padding: 16px;
+      margin-bottom: 14px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      max-width: 500px;
+    }
+    button {
+      padding: 6px 12px;
+      background: #2563eb;
+      border: none;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    input {
+      padding: 6px;
+      border-radius: 6px;
+      border: 1px solid #d0d7de;
+      width: 180px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>โจทย์ DateTime แบบง่าย</h1>
+
+  <!-- Feature 1 -->
+  <div class="card">
+    <h3>1) เวลา ณ ปัจจุบัน</h3>
+    <p>เวลาตอนนี้: <span id="current-time">--:--:--</span></p>
+  </div>
+
+  <!-- Feature 2 -->
+  <div class="card">
+    <h3>2) คำนวณอายุจากวันเกิด</h3>
+    <input type="date" id="birth-input">
+    <button id="calc-age-btn">คำนวณอายุ</button>
+    <div id="age-result" style="margin-top: 10px; font-weight:bold;"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

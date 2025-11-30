@@ -1,0 +1,32 @@
+:root{
+  --bg:#f4f6fb;
+  --card:#fff;
+  --primary:#2563eb;
+  --success:#16a34a;
+  --danger:#ef4444;
+  --muted:#6b7280;
+  --radius:10px;
+}
+
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:#0f172a}
+.container{max-width:900px;margin:32px auto;padding:20px;background:var(--card);border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.06)}
+h1{margin:0 0 14px}
+.controls{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.btn{padding:8px 12px;border-radius:8px;border:0;background:var(--primary);color:#fff;cursor:pointer}
+.status{color:var(--muted);font-weight:600}
+
+/* table */
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse}
+th,td{padding:12px;text-align:left;border-bottom:1px solid #eef2f6}
+thead{background:#f8fafc}
+.action-btn{padding:6px 10px;border-radius:6px;border:0;cursor:pointer}
+.edit-btn{background:#10b981;color:#fff}
+.save-btn{background:#2563eb;color:#fff}
+.cancel-btn{background:#ef4444;color:#fff}
+.input-edit{padding:6px 8px;border-radius:6px;border:1px solid #e2e8f0;width:100%}
+
+/* small messages */
+.message-success{color:var(--success)}
+.message-error{color:var(--danger)}

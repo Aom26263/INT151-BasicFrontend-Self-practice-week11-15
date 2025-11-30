@@ -1,0 +1,43 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const table = document.getElementById("student-table")
+    const nameInput = document.getElementById("name")
+    const majorInput = document.getElementById("major")
+    const addbtn = document.getElementById("add-btn") 
+
+    // function ที่ loadStudents ก็จะ fetch ข้อมูลจาก backend มาเเล้วก็ใช้ forEach เอาข้อมูลเพิ่มไปในตารางเเต่ละช่อง
+    async function loadStudents() {
+        table.innerHTML = ""
+        const res = await fetch("http://localhost:3000/students")
+        const students = await res.json()
+        students.forEach( s => {
+            const row = document.createElement("tr")
+            row.innerHTML = `
+            <td>${s.id}</td>
+            <td>${s.name}</td>
+            <td>${s.major}</td>
+            `
+        
+            table.appendChild(row)
+        })
+    }
+
+     // เมื่อกดปุ่ม add ก็จะเพิ่มข้อมูลที่ input เข้ามาไปต่ออันท้ายสุดของตาราง
+    addbtn.addEventListener("click", async () => {
+        const name = nameInput.value.trim()
+        const major = majorInput.value.trim()
+        if (!name || !major) return alert("Fill all fields")
+
+        const res = await fetch("http://localhost:3000/students", {     //fetch ข้อมูลจา backend โดยใช้ method post ในการบอกว่าจะเพิ่มเข้าไปในข้อมูลเดิม
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, major })
+        });
+
+        if (res.ok) {
+            nameInput.value = ""       //clear ค่าที่ input เข้ามา
+            majorInput.value = ""
+            loadStudents()             //เรียก loadStudents() เพื่อ ดึงข้อมูลล่าสุดจาก backend มาแสดงในตาราง
+        }
+    })
+    loadStudents();
+})
